@@ -6,7 +6,7 @@ The application is built with React, TypeScript, Express, tRPC, Drizzle ORM, and
 
 ## Seed data preserved
 
-The provided `seedData.zip` was inspected and copied into `server/seed/seed.json`. The database seed preserves all 12 painting IDs and catalog fields, the 10 available / 2 sold painting statuses, the 5 pottery item IDs, the 6 glaze IDs, the `INR` currency, the mural rate of `₹150` per square foot, and the supplied Studio Admin credentials. Supplied painting images are copied into `client/public/images/`.
+The provided `seedData.zip` was inspected and copied into `server/seed/seed.json`. The database seed preserves all 12 supplied painting IDs and catalog fields, the original 10 available / 2 sold painting statuses, the 5 pottery item IDs, the 6 glaze IDs, the `INR` currency, the mural rate of `₹150` per square foot, and the supplied Studio Admin credentials. Four additional original salon works were added as available catalogue records (`p-013` through `p-016`) using managed image storage; supplied painting images remain copied into `client/public/images/`.
 
 The seed is idempotent. It updates catalog descriptions and settings, but it does not reset transactional orders, bookings, pottery requests, or a painting’s current availability after the initial insert.
 
@@ -35,7 +35,7 @@ pnpm seed
 pnpm dev
 ```
 
-The development server listens on port `3000` unless `PORT` is set. Open the local URL shown by the dev server. The production build is:
+The development server listens on port `3000` unless `PORT` is set. Open the local URL shown by the dev server. In addition to the assignment flows, the public site includes About the House and Studio Journal editorial pages. The production build is:
 
 ```bash
 pnpm check

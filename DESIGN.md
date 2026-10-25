@@ -20,7 +20,7 @@ A wall-painting date is unique through a database unique index on `wall_bookings
 
 ## What is finished
 
-The working MVP includes the supplied painting gallery and images, painting detail and purchase flow, order cancellation, customer and admin dashboards, wall-painting date validation and rate calculation, booking cancellation and admin decisions, pottery item/glaze validation, quantity and needed-by validation, customer edit/cancel while requested, admin accept/decline, loading/empty/error/success/conflict feedback, protected routes, migrations, seed script, demo credentials, route manifest, and documentation.
+The working MVP includes the supplied painting gallery and images, four additional original salon works, painting detail and purchase flow, order cancellation, customer and admin dashboards, wall-painting date validation and rate calculation, booking cancellation and admin decisions, pottery item/glaze validation, quantity and needed-by validation, customer edit/cancel while requested, admin accept/decline, loading/empty/error/success/conflict feedback, protected routes, migrations, seed script, demo credentials, route manifest, and documentation. The public experience also includes About the House and Studio Journal pages, with a subtle paper-grain texture, warm radial light, framed image treatment, and calm reveal/hover motion that respects reduced-motion preferences.
 
 ## What is intentionally left out
 

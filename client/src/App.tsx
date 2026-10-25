@@ -11,6 +11,8 @@ import WallBooking from "./pages/WallBooking";
 import Pottery from "./pages/Pottery";
 import Dashboard from "./pages/Dashboard";
 import AdminDashboard from "./pages/AdminDashboard";
+import About from "./pages/About";
+import Journal from "./pages/Journal";
 import NotFound from "./pages/NotFound";
 
 function Router() {
@@ -23,6 +25,8 @@ function Router() {
     <Route path="/pottery" component={Pottery} />
     <Route path="/dashboard" component={Dashboard} />
     <Route path="/admin" component={AdminDashboard} />
+    <Route path="/about" component={About} />
+    <Route path="/journal" component={Journal} />
     <Route path="/404" component={NotFound} />
     <Route component={NotFound} />
   </Switch>;

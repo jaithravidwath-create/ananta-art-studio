@@ -108,6 +108,42 @@
       "price": 25000,
       "imageUrl": "images/p-012.jpg",
       "status": "available"
+    },
+    {
+      "id": "p-013",
+      "title": "Monsoon Courtyard",
+      "artist": "Aditi Menon",
+      "description": "A quiet courtyard after rain, with terracotta, indigo and a single brass lamp. Archival giclée on cotton rag, 50 x 70 cm.",
+      "price": 12800,
+      "imageUrl": "manus-storage/async-images/scnpU95IBXALwvGdaNOynh/image-1.webp",
+      "status": "available"
+    },
+    {
+      "id": "p-014",
+      "title": "The Reading Room at Dusk",
+      "artist": "Naina Kapoor",
+      "description": "A miniature-inspired study in walnut, plum and moss, painted with the hush of a library after sundown. Gouache and mineral pigment on paper, 42 x 58 cm.",
+      "price": 16400,
+      "imageUrl": "manus-storage/async-images/scnpU95IBXALwvGdaNOynh/image-2.webp",
+      "status": "available"
+    },
+    {
+      "id": "p-015",
+      "title": "Night-Blooming Jasmine",
+      "artist": "Farah Siddiqui",
+      "description": "A fragrant branch held in a brass vase, set against an espresso ground. Tempera and gold leaf on board, 45 x 60 cm.",
+      "price": 9800,
+      "imageUrl": "manus-storage/async-images/scnpU95IBXALwvGdaNOynh/image-3.webp",
+      "status": "available"
+    },
+    {
+      "id": "p-016",
+      "title": "The Last Light at Udaipur",
+      "artist": "Devika Rathore",
+      "description": "A still lake, palace silhouettes and the last saffron light of day. Oil on linen, 60 x 80 cm.",
+      "price": 21900,
+      "imageUrl": "manus-storage/async-images/scnpU95IBXALwvGdaNOynh/image-4.webp",
+      "status": "available"
     }
   ],
   "potteryItems": [

@@ -45,6 +45,8 @@ export function StudioShell({ children }: { children: React.ReactNode }) {
         <Link href="/paintings" className={location.startsWith("/paintings") ? "active" : ""} onClick={close}>The collection</Link>
         <Link href="/book-wall" className={location === "/book-wall" ? "active" : ""} onClick={close}>Wall painting</Link>
         <Link href="/pottery" className={location === "/pottery" ? "active" : ""} onClick={close}>Custom pottery</Link>
+        <Link href="/about" className={location === "/about" ? "active" : ""} onClick={close}>About the house</Link>
+        <Link href="/journal" className={location === "/journal" ? "active" : ""} onClick={close}>Journal</Link>
         {me.data?.role === "studio" && <Link href="/admin" className={location === "/admin" ? "active" : ""} onClick={close}>Studio desk</Link>}
         {loggedIn ? <>
           <Link href="/dashboard" className={location === "/dashboard" ? "active" : ""} onClick={close}>My studio</Link>
@@ -53,7 +55,7 @@ export function StudioShell({ children }: { children: React.ReactNode }) {
       </nav>
     </header>
     <main>{children}</main>
-    <footer className="footer"><div><span className="footer-rule" /><strong>Art Studio</strong><p>A considered place for singular works, hand-finished walls, and objects made to be kept.</p></div><div className="footer-meta"><span>INR · by appointment</span><span>© 2026 Art Studio</span></div></footer>
+    <footer className="footer"><div><span className="footer-rule" /><strong>Art Studio</strong><p>A considered place for singular works, hand-finished walls, and objects made to be kept.</p><div className="footer-links"><Link href="/about">About the house</Link><Link href="/journal">Journal</Link></div></div><div className="footer-meta"><span>INR · by appointment</span><span>© 2026 Art Studio</span></div></footer>
   </div>;
 }
 
