@@ -1,4 +1,4 @@
-# Art Studio implementation plan
+# Ananta implementation plan
 
 ## Scope and approach
 
@@ -34,7 +34,7 @@ Three possible directions sampled for the brief: **private art salon / editorial
 - **Typography system:** Georgia/Times-like serif for major headings and card titles; system sans for controls, metadata, and body copy. Uppercase letter-spaced labels establish the catalog voice.
 - **Brand essence:** a private art salon for buying, commissioning, and booking made-to-measure craft; composed, discerning, human.
 - **Brand voice:** headlines are poised and specific; CTAs are direct and warm. Example lines: “Works with a singular point of view.” / “Reserve a date for the wall.”
-- **Wordmark & logo:** a stacked `A / S` monogram in a thin brass square frame beside the Art Studio wordmark.
+- **Wordmark & logo:** a stacked `A / S` monogram in a thin brass square frame beside the Ananta wordmark.
 - **Signature brand color:** muted brass `#A58B61`, used sparingly as the studio’s identifying thread.
 
 ## Build workflow

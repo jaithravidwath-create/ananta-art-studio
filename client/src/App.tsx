@@ -13,6 +13,11 @@ import Dashboard from "./pages/Dashboard";
 import AdminDashboard from "./pages/AdminDashboard";
 import About from "./pages/About";
 import Journal from "./pages/Journal";
+import Browse from "./pages/Browse";
+import Manage from "./pages/Manage";
+import Purchase from "./pages/Purchase";
+import Records from "./pages/Records";
+import Genres from "./pages/Genres";
 import NotFound from "./pages/NotFound";
 
 function Router() {
@@ -27,6 +32,11 @@ function Router() {
     <Route path="/admin" component={AdminDashboard} />
     <Route path="/about" component={About} />
     <Route path="/journal" component={Journal} />
+    <Route path="/browse" component={Browse} />
+    <Route path="/manage" component={Manage} />
+    <Route path="/purchase" component={Purchase} />
+    <Route path="/records" component={Records} />
+    <Route path="/genres" component={Genres} />
     <Route path="/404" component={NotFound} />
     <Route component={NotFound} />
   </Switch>;

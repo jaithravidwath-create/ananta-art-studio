@@ -1,4 +1,4 @@
-# Art Studio delivery checklist
+# Ananta delivery checklist
 
 - [x] **Authentication and role protection** — Customers and Studio Admins can log in with documented demo credentials; protected requests enforce server-side authentication; unauthenticated requests produce 401 behavior; wrong-role requests produce 403 behavior; customer-owned records are scoped so another customer’s record is not exposed and missing/unauthorized records behave as not found; frontend button hiding is not the authorization mechanism.
 
@@ -11,3 +11,7 @@
 - [x] **Reliable interface states and editorial UI** — Every data-loading screen exposes loading, empty, error, success, and business-conflict feedback; the application uses the supplied calm old-money palette, serif/sans typography pairing, generous whitespace, thin borders, restrained shadows, framed gallery labels, accessible controls, and responsive layouts without distracting decoration.
 
 - [x] **Submission documentation and readiness** — README.md covers overview, stack, setup, environment variables, database migration/seed, credentials, and local run commands; DESIGN.md answers role/login, database choice, concurrency protection, finished scope, omissions, and next steps; .env.example contains names only; route manifest, migrations, seed scripts, diagnostics, type checks, tests, and build are clean.
+
+- [x] **Ananta information architecture** — The site is named Ananta; the first page describes Ananta as an Indian art studio and its paintings, arts, wall-painting service and custom pottery; separate Browse, Manage, Purchase, Records and Genres pages exist; and a fixed bottom dock links to those page headings.
+
+- [x] **Scope discipline** — The supplied out-of-scope table is documented and honored: no real payments, account extras, reviews/coupons/delivery messaging, image uploads, new animation work, mobile-layout work, deployment, Docker or CI/CD.

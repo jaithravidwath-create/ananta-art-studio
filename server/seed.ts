@@ -62,7 +62,7 @@ export async function seedDatabase() {
   } else {
     await db.update(studioSettings).set({ currency: seed.currency, muralRatePerSqFt: seed.mural.ratePerSqFt }).where(eq(studioSettings.id, 1));
   }
-  console.log("Art Studio seed complete");
+  console.log("Ananta seed complete");
   await (db as unknown as { $client?: { end?: () => Promise<void> } }).$client?.end?.();
 }
 

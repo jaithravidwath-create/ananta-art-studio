@@ -1,5 +1,5 @@
 import { Link, useLocation } from "wouter";
-import { ArrowRight, LogOut, Menu, X } from "lucide-react";
+import { ArrowRight, BookOpen, ClipboardList, Compass, LogOut, Menu, Pencil, ShoppingBag, X } from "lucide-react";
 import { useState } from "react";
 import { trpc } from "@/lib/trpc";
 
@@ -38,15 +38,16 @@ export function StudioShell({ children }: { children: React.ReactNode }) {
     <header className="topbar">
       <Link href="/" className="brand" onClick={close}>
         <span className="brand-mark" aria-hidden="true"><span>A</span><span>S</span></span>
-        <span><strong>Art Studio</strong><small>Private salon · India</small></span>
+        <span><strong>Ananta</strong><small>Private art studio · India</small></span>
       </Link>
       <button className="mobile-menu" aria-label="Toggle navigation" onClick={() => setOpen(value => !value)}>{open ? <X size={20} /> : <Menu size={20} />}</button>
       <nav className={`main-nav ${open ? "nav-open" : ""}`}>
-        <Link href="/paintings" className={location.startsWith("/paintings") ? "active" : ""} onClick={close}>The collection</Link>
+        <Link href="/browse" className={location === "/browse" ? "active" : ""} onClick={close}>Browse</Link>
+        <Link href="/paintings" className={location.startsWith("/paintings") ? "active" : ""} onClick={close}>Paintings</Link>
         <Link href="/book-wall" className={location === "/book-wall" ? "active" : ""} onClick={close}>Wall painting</Link>
         <Link href="/pottery" className={location === "/pottery" ? "active" : ""} onClick={close}>Custom pottery</Link>
         <Link href="/about" className={location === "/about" ? "active" : ""} onClick={close}>About the house</Link>
-        <Link href="/journal" className={location === "/journal" ? "active" : ""} onClick={close}>Journal</Link>
+        <Link href="/genres" className={location === "/genres" ? "active" : ""} onClick={close}>Genres</Link>
         {me.data?.role === "studio" && <Link href="/admin" className={location === "/admin" ? "active" : ""} onClick={close}>Studio desk</Link>}
         {loggedIn ? <>
           <Link href="/dashboard" className={location === "/dashboard" ? "active" : ""} onClick={close}>My studio</Link>
@@ -55,7 +56,8 @@ export function StudioShell({ children }: { children: React.ReactNode }) {
       </nav>
     </header>
     <main>{children}</main>
-    <footer className="footer"><div><span className="footer-rule" /><strong>Art Studio</strong><p>A considered place for singular works, hand-finished walls, and objects made to be kept.</p><div className="footer-links"><Link href="/about">About the house</Link><Link href="/journal">Journal</Link></div></div><div className="footer-meta"><span>INR · by appointment</span><span>© 2026 Art Studio</span></div></footer>
+    <footer className="footer"><div><span className="footer-rule" /><strong>Ananta</strong><p>A considered Indian art studio for singular paintings, hand-finished walls, and objects made to be kept.</p><div className="footer-links"><Link href="/about">About Ananta</Link><Link href="/genres">Genres</Link><Link href="/journal">Journal</Link></div></div><div className="footer-meta"><span>INR · by appointment</span><span>© 2026 Ananta</span></div></footer>
+    <nav className="floating-dock" aria-label="Ananta page dock"><Link href="/browse" className={location === "/browse" ? "dock-active" : ""}><Compass size={15} /><span>Browse</span></Link><Link href="/manage" className={location === "/manage" ? "dock-active" : ""}><Pencil size={15} /><span>Manage</span></Link><Link href="/purchase" className={location === "/purchase" ? "dock-active" : ""}><ShoppingBag size={15} /><span>Purchase</span></Link><Link href="/records" className={location === "/records" ? "dock-active" : ""}><ClipboardList size={15} /><span>Orders & requests</span></Link><Link href="/genres" className={location === "/genres" ? "dock-active" : ""}><BookOpen size={15} /><span>Genres</span></Link><Link href="/about" className={location === "/about" ? "dock-active" : ""}><span className="dock-letter">A</span><span>About</span></Link></nav>
   </div>;
 }
 

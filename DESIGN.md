@@ -29,3 +29,9 @@ The assignment explicitly excludes real payments, sign-up, password reset, email
 ## What I would build next
 
 For a production studio, the next iteration would use a stronger password hashing policy with rotation and a dedicated session table, add audit history for admin decisions, move customer notifications to an approved transactional email provider, add availability/calendar views, introduce a controlled upload pipeline for new painting photography, and add integration tests that exercise concurrent purchase and booking conflicts against a disposable database.
+
+## Ananta information architecture
+
+The public pages are intentionally small and easy to present: Home/About explains the studio, Browse routes to paintings or pottery, Purchase explains the order/request distinction, Genres gives context for the catalogue, and Records/Manage make the authenticated customer and admin workflows explicit. The bottom dock is navigation only; it does not replace server authorization.
+
+The assignment scope image is treated as authoritative. There are no real payments, account extras, reviews/coupons/delivery messaging, image uploads, page-transition/opening animations, mobile-layout work, or deployment infrastructure. The admin can add and edit available paintings because that is in scope; seeded pottery items and glazes are read-only because the assignment asks for custom pottery requests, not pottery inventory management.

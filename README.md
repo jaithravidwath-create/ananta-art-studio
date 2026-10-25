@@ -1,6 +1,6 @@
-# Art Studio
+# Ananta
 
-Art Studio is a small full-stack application for a refined Indian art studio. It demonstrates three carefully bounded workflows: reserving a one-of-a-kind painting, requesting a wall-painting date, and commissioning custom pottery.
+Ananta is a small full-stack application for a refined Indian art studio. It demonstrates three carefully bounded workflows: reserving a one-of-a-kind painting, requesting a wall-painting date, and commissioning custom pottery.
 
 The application is built with React, TypeScript, Express, tRPC, Drizzle ORM, and managed MySQL. The interface follows a quiet private-salon direction: cream and warm beige surfaces, espresso navigation, muted brass details, serif editorial headings, and clear register-like forms.
 
@@ -61,3 +61,17 @@ Sign in as the customer, open The Collection, choose an available work, and rese
 ## Scope intentionally left out
 
 There is no real payment processing, account sign-up, password reset, email verification, social login, customer email/SMS, reviews, coupons, delivery tracking, upload workflow, or native mobile app. Those are outside the assignment MVP and are described with next steps in `DESIGN.md`.
+
+## Ananta page map
+
+- `/` introduces Ananta as an Indian art studio and explains its paintings, wall-painting service, and custom pottery.
+- `/browse` is the simple browse page for paintings and pottery.
+- `/purchase` explains painting orders and pottery requests. It intentionally has no checkout or payment fields.
+- `/manage` is the protected Studio Admin guide to adding/editing available paintings. Seeded pottery forms and glazes remain read-only catalogue choices.
+- `/records` is the protected customer/admin register guide. Customers go to their own dashboard; admins go to the decision desk for confirming/declining bookings and accepting/declining pottery requests.
+- `/genres` explains the painting genres and subgenres represented in the catalogue.
+- The fixed bottom dock links to these headings so the information architecture is easy to explain live.
+
+## Scope decision
+
+The supplied assignment image says the following are out of scope: real payments, account extras such as reset/verification/social login/sign-up, reviews/coupons/delivery tracking/email/SMS, image uploads, fancy styling/animations/mobile layout, and deployment/Docker/CI/CD. This build does not add any of those features. In particular, the requested page-transition/opening animations were not added because they directly conflict with the assignment’s explicit “animations” exclusion. Existing restrained visual styling is kept only as presentation already present in the approved MVP.
