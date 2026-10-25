@@ -1,25 +1,18 @@
-import { Button } from "@/components/ui/button";
-import { Loader2 } from "lucide-react";
-import { Streamdown } from 'streamdown';
+import { ArrowDownRight, ArrowRight, CalendarDays, Hand, Sparkles } from "lucide-react";
+import { Link } from "wouter";
+import { trpc } from "@/lib/trpc";
+import { EmptyState, ErrorState, LoadingState, StudioShell } from "@/components/StudioShell";
 
-/**
- * All content in this page are only for example, replace with your own feature implementation
- * When building pages, remember your instructions in Frontend Workflow, Frontend Best Practices, Design Guide and Common Pitfalls
- */
 export default function Home() {
-  // If theme is switchable in App.tsx, we can implement theme toggling like this:
-  // const { theme, toggleTheme } = useTheme();
-
-  return (
-    <div className="min-h-screen flex flex-col">
-      <main>
-        {/* Example: lucide-react for icons */}
-        <Loader2 className="animate-spin" />
-        Example Page
-        {/* Example: Streamdown for markdown rendering */}
-        <Streamdown>Any **markdown** content</Streamdown>
-        <Button variant="default">Example Button</Button>
-      </main>
-    </div>
-  );
+  const paintings = trpc.catalog.listAvailable.useQuery();
+  return <StudioShell>
+    <section className="hero container">
+      <div className="hero-copy"><span className="eyebrow">A private art salon · Est. 2026</span><h1>Works with a<br /><em>singular</em> point of view.</h1><p>Original paintings, hand-finished walls, and custom pottery, gathered with a quiet respect for the hand that made them.</p><div className="hero-actions"><Link className="button button-dark" href="/paintings">Enter the collection <ArrowRight size={16} /></Link><Link className="text-button" href="/book-wall">Reserve a wall <ArrowDownRight size={16} /></Link></div></div>
+      <div className="hero-art"><div className="hero-frame"><img src="/images/p-003.jpg" alt="Tanjore Lakshmi with gold leaf" /><div className="frame-caption"><span>03 / 12</span><span>Revathi Iyer · Tanjore</span></div></div><span className="hero-note">Collected in<br />the subcontinent</span></div>
+    </section>
+    <section className="intro-band"><div className="container intro-grid"><div><span className="eyebrow">The studio, in three gestures</span><h2>Made for rooms<br />with a point of view.</h2></div><p>We work slowly, with artists and makers whose traditions carry their own vocabulary. Find a piece for the wall, commission the wall itself, or request an object for the everyday.</p></div></section>
+    <section className="services container"><article className="service-card service-card-dark"><div className="service-number">01</div><Sparkles size={23} strokeWidth={1.2} /><h3>Buy a painting</h3><p>One-of-a-kind works in Madhubani, Tanjore, Gond, Pichwai, and beyond.</p><Link href="/paintings" className="service-link">View the collection <ArrowRight size={16} /></Link></article><article className="service-card"><div className="service-number">02</div><CalendarDays size={23} strokeWidth={1.2} /><h3>Paint your wall</h3><p>A measured mural service for a single wall, priced with clarity at ₹150 per sq ft.</p><Link href="/book-wall" className="service-link">Choose a date <ArrowRight size={16} /></Link></article><article className="service-card"><div className="service-number">03</div><Hand size={23} strokeWidth={1.2} /><h3>Request pottery</h3><p>Choose the form, glaze, quantity, and a needed-by date. We will take it from there.</p><Link href="/pottery" className="service-link">Shape a request <ArrowRight size={16} /></Link></article></section>
+    <section className="featured container"><div className="section-heading"><div><span className="eyebrow">A first look</span><h2>Currently on the walls</h2></div><Link href="/paintings" className="text-button">See all works <ArrowRight size={15} /></Link></div>{paintings.isLoading ? <LoadingState label="Unwrapping the collection…" /> : paintings.error ? <ErrorState message={paintings.error.message} retry={() => paintings.refetch()} /> : !paintings.data?.length ? <EmptyState title="The walls are quiet." body="There are no available works at this moment." /> : <div className="featured-grid">{paintings.data.slice(0, 3).map((painting, index) => <Link href={`/paintings/${painting.id}`} className="featured-card" key={painting.id}><div className="featured-image"><img src={`/${painting.imageUrl}`} alt={painting.title} /><span>{String(index + 1).padStart(2, "0")}</span></div><div className="catalog-meta"><span>{painting.artist}</span><span>₹{painting.price.toLocaleString("en-IN")}</span></div><h3>{painting.title}</h3></Link>)}</div>}</section>
+    <section className="quote-band"><div className="container quote-wrap"><span className="quote-mark">“</span><blockquote>The best rooms are not decorated. They are <em>composed.</em></blockquote><p>— The Art Studio register</p></div></section>
+  </StudioShell>;
 }

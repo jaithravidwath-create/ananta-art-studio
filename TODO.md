@@ -1,0 +1,13 @@
+# Art Studio delivery checklist
+
+- [x] **Authentication and role protection** — Customers and Studio Admins can log in with documented demo credentials; protected requests enforce server-side authentication; unauthenticated requests produce 401 behavior; wrong-role requests produce 403 behavior; customer-owned records are scoped so another customer’s record is not exposed and missing/unauthorized records behave as not found; frontend button hiding is not the authorization mechanism.
+
+- [x] **Seeded paintings gallery and purchase flow** — Preserve the provided painting IDs, titles, artists, descriptions, prices, images, and available/sold statuses; customers browse available paintings, open details, buy an available unique painting, view their own orders, and cancel their own order; admins browse all paintings, add a painting, edit only available paintings, and see all orders; concurrent purchase attempts cannot sell one painting twice, cancellation returns it to available, and sold/conflict feedback is clear.
+
+- [x] **Wall-painting booking flow** — Customers can choose a date 7–90 days from today, enter a 10–500 sq ft wall size and address, see price as wall size multiplied by the seeded INR 150 rate, submit a request, view their own bookings, and cancel until 3 days before the date; admins view all bookings and confirm or decline; each date is unique, invalid/taken dates are rejected, statuses are requested/confirmed/declined/cancelled, and validation/conflict feedback is clear.
+
+- [x] **Custom pottery request flow** — Customers choose only seeded pottery items and glazes, choose quantity 1–12 and a needed-by date at least 14 days away, submit, view, edit while requested, and cancel while requested; admins view all requests and accept or decline; statuses are requested/accepted/declined/cancelled and invalid values/status transitions are rejected server-side.
+
+- [x] **Reliable interface states and editorial UI** — Every data-loading screen exposes loading, empty, error, success, and business-conflict feedback; the application uses the supplied calm old-money palette, serif/sans typography pairing, generous whitespace, thin borders, restrained shadows, framed gallery labels, accessible controls, and responsive layouts without distracting decoration.
+
+- [x] **Submission documentation and readiness** — README.md covers overview, stack, setup, environment variables, database migration/seed, credentials, and local run commands; DESIGN.md answers role/login, database choice, concurrency protection, finished scope, omissions, and next steps; .env.example contains names only; route manifest, migrations, seed scripts, diagnostics, type checks, tests, and build are clean.
