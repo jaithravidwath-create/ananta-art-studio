@@ -15,3 +15,5 @@
 - [x] **Ananta information architecture** — The site is named Ananta; the first page describes Ananta as an Indian art studio and its paintings, arts, wall-painting service and custom pottery; separate Browse, Manage, Purchase, Records and Genres pages exist; and a fixed bottom dock links to those page headings.
 
 - [x] **Scope discipline** — The supplied out-of-scope table is documented and honored: no real payments, account extras, reviews/coupons/delivery messaging, image uploads, new animation work, mobile-layout work, deployment, Docker or CI/CD.
+
+- [x] **Motion exception requested by the owner** — Dock navigation has a short page-enter transition; headings, text, images and cards receive a restrained scroll reveal/sway using `IntersectionObserver`; `prefers-reduced-motion` disables the effects. This is documented as the only intentional exception to the assignment’s animation exclusion.

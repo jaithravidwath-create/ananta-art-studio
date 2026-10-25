@@ -1,3 +1,3 @@
 export default {
-  logoUrl: "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&w=128&q=80",
+  logoUrl: "https://files.manuscdn.com/user_upload_by_module/session_file/310519664043232394/YFAhgpEHYzoPkOMr.jpg",
 };

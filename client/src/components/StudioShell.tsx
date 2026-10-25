@@ -1,6 +1,6 @@
 import { Link, useLocation } from "wouter";
 import { ArrowRight, BookOpen, ClipboardList, Compass, LogOut, Menu, Pencil, ShoppingBag, X } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { trpc } from "@/lib/trpc";
 
 export function LoadingState({ label = "Opening the studio register…" }: { label?: string }) {
@@ -34,10 +34,31 @@ export function StudioShell({ children }: { children: React.ReactNode }) {
   const logout = trpc.auth.logout.useMutation({ onSuccess: () => { me.refetch(); setLocation("/"); } });
   const close = () => setOpen(false);
   const loggedIn = Boolean(me.data);
+  useEffect(() => {
+    const main = document.querySelector("main");
+    if (!main || typeof IntersectionObserver === "undefined") return;
+    const selector = "h1,h2,h3,p,img,.service-card,.featured-card,.painting-card,.journal-card,.genre-card,.choice-card,.record-card,.manage-row,.quote-band";
+    const observer = new IntersectionObserver(entries => entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      }
+    }), { threshold: 0.12, rootMargin: "0px 0px -24px" });
+    const prepare = () => main.querySelectorAll(selector).forEach(element => {
+      if (!element.classList.contains("scroll-reveal")) {
+        element.classList.add("scroll-reveal");
+        observer.observe(element);
+      }
+    });
+    prepare();
+    const changes = new MutationObserver(prepare);
+    changes.observe(main, { childList: true, subtree: true });
+    return () => { observer.disconnect(); changes.disconnect(); };
+  }, [location]);
   return <div className="site-shell">
     <header className="topbar">
       <Link href="/" className="brand" onClick={close}>
-        <span className="brand-mark" aria-hidden="true"><span>A</span><span>S</span></span>
+        <img className="brand-logo" src="/manus-storage/ananta-logo_85396e38.jpg" alt="Ananta infinity logo" />
         <span><strong>Ananta</strong><small>Private art studio · India</small></span>
       </Link>
       <button className="mobile-menu" aria-label="Toggle navigation" onClick={() => setOpen(value => !value)}>{open ? <X size={20} /> : <Menu size={20} />}</button>
@@ -55,7 +76,7 @@ export function StudioShell({ children }: { children: React.ReactNode }) {
         </> : <Link href={`/login?next=${encodeURIComponent(location)}`} className="nav-login" onClick={close}>Sign in</Link>}
       </nav>
     </header>
-    <main>{children}</main>
+    <main key={location} className="page-transition">{children}</main>
     <footer className="footer"><div><span className="footer-rule" /><strong>Ananta</strong><p>A considered Indian art studio for singular paintings, hand-finished walls, and objects made to be kept.</p><div className="footer-links"><Link href="/about">About Ananta</Link><Link href="/genres">Genres</Link><Link href="/journal">Journal</Link></div></div><div className="footer-meta"><span>INR · by appointment</span><span>© 2026 Ananta</span></div></footer>
     <nav className="floating-dock" aria-label="Ananta page dock"><Link href="/browse" className={location === "/browse" ? "dock-active" : ""}><Compass size={15} /><span>Browse</span></Link><Link href="/manage" className={location === "/manage" ? "dock-active" : ""}><Pencil size={15} /><span>Manage</span></Link><Link href="/purchase" className={location === "/purchase" ? "dock-active" : ""}><ShoppingBag size={15} /><span>Purchase</span></Link><Link href="/records" className={location === "/records" ? "dock-active" : ""}><ClipboardList size={15} /><span>Orders & requests</span></Link><Link href="/genres" className={location === "/genres" ? "dock-active" : ""}><BookOpen size={15} /><span>Genres</span></Link><Link href="/about" className={location === "/about" ? "dock-active" : ""}><span className="dock-letter">A</span><span>About</span></Link></nav>
   </div>;

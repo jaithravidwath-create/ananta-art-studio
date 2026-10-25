@@ -74,4 +74,10 @@ There is no real payment processing, account sign-up, password reset, email veri
 
 ## Scope decision
 
-The supplied assignment image says the following are out of scope: real payments, account extras such as reset/verification/social login/sign-up, reviews/coupons/delivery tracking/email/SMS, image uploads, fancy styling/animations/mobile layout, and deployment/Docker/CI/CD. This build does not add any of those features. In particular, the requested page-transition/opening animations were not added because they directly conflict with the assignment’s explicit “animations” exclusion. Existing restrained visual styling is kept only as presentation already present in the approved MVP.
+The supplied assignment image says the following are out of scope: real payments, account extras such as reset/verification/social login/sign-up, reviews/coupons/delivery tracking/email/SMS, image uploads, fancy styling/animations/mobile layout, and deployment/Docker/CI/CD. This build intentionally keeps all of those excluded except for the latest requested motion exception: dock navigation now has a short page-enter transition and content has a restrained scroll reveal/sway effect. Both are CSS-only, easy to explain, and disabled with `prefers-reduced-motion`. No payment, account, messaging, upload, mobile-layout, deployment, Docker or CI/CD work was added.
+
+## Assignment audit
+
+Covered in the application: the three required studio workflows; customer and Studio Admin roles; server-side RBAC with 401/403/404 behavior; one-time painting sales with cancellation; unique wall dates with 7–90 day validation and seed-rate pricing; pottery item/glaze, quantity and needed-by validation; customer ownership checks; admin booking and pottery decisions; loading, empty, error and conflict feedback; seed preservation; migrations; `.env.example`; README; and DESIGN.md.
+
+Still required outside the application: submit the repository through the club’s required channel, make the repository public if requested, and record the five-minute demo with your own voice explaining the code. The assignment document also asks for a DESIGN.md walkthrough; this repository includes that file. The latest requested calm motion is documented as an intentional exception because the brief lists animations as out of scope.
