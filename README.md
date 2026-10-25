@@ -46,7 +46,7 @@ pnpm start
 
 ## Environment variables
 
-`.env.example` contains variable names only. `DATABASE_URL` is required for migrations, seed, and server-backed workflows. `APP_SESSION_SECRET` should be set to a long random value outside the managed preview if a deployment-specific secret is available. `APP_COOKIE_SECURE` defaults to secure Preview behavior; set it to `false` only for plain HTTP local testing. `PORT` is optional.
+`.env.example` contains safe placeholders only. Replace `DATABASE_URL` with a MySQL-compatible connection string and `APP_SESSION_SECRET` with a long random value outside the managed preview. `APP_COOKIE_SECURE` should remain `true` for HTTPS Preview; set it to `false` only for plain HTTP local testing. `PORT` defaults to `3000`.
 
 ## Database and authorization model
 
