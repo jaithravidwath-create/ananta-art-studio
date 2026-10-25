@@ -39,10 +39,7 @@ export function StudioShell({ children }: { children: React.ReactNode }) {
     if (!main || typeof IntersectionObserver === "undefined") return;
     const selector = "h1,h2,h3,p,img,.service-card,.featured-card,.painting-card,.journal-card,.genre-card,.choice-card,.record-card,.manage-row,.quote-band";
     const observer = new IntersectionObserver(entries => entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("is-visible");
-        observer.unobserve(entry.target);
-      }
+      entry.target.classList.toggle("is-visible", entry.isIntersecting);
     }), { threshold: 0.12, rootMargin: "0px 0px -24px" });
     const prepare = () => main.querySelectorAll(selector).forEach(element => {
       if (!element.classList.contains("scroll-reveal")) {
